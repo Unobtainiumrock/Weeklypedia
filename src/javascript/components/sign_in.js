@@ -1,31 +1,28 @@
 
 function signIn() {
-
-  // 
-  var signInModal = $('<div>');
-  signInModal.addClass('row-fluid');
-  signInModal.attr('id','sign-in-modal');
-
-  // Make sure that the variable we store our elements in matches the class name for
-  // bootstrap naming conventions
-  var buttonPrimary = $('<button>');
-  button.addClass('btn btn-primary');
-  button.attr('data-toggle','modal');
-  button.attr('data-target','exampleModal');
-  button.text('Sign In');
-  signInModal.append(buttonPrimary);
-
-  // Make sure that the variable we store our elements in matches the class name for
-  // bootstrap naming conventions
-  var modalFade = $('<div>');
-  modalDiv.addClass('modal fade');
-  modalDiv.attr('id','exampleModal');
-  modalDiv.attr('tabindex','-1');
-  modalDiv.attr('role','dialogue');
-  modalDiv.attr('aria-labelledby','exampleModalLabel');
-  modalDiv.attr('aria-hidden','true');
-
-  // var modalDialogue = 
-
-  $('#app').html(signInModal);
+  $('#app').html(`<!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>`);
 }
