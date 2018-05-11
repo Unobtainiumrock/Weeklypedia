@@ -11,10 +11,11 @@ img{
 .container-fluid {
     min-height: 100%;
     background-color: grey;
-}
-.row-fluid {
     text-align: center;
 }
+/* .row-fluid {
+    text-align: center;
+} */
 footer {
     text-align: center;
     position: fixed;
