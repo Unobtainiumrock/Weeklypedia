@@ -1,0 +1,26 @@
+html, body {
+    height: 100%;
+}
+header {
+    text-align: center;
+    background-color: beige;
+}
+img{
+    display: block;
+}
+.container-fluid {
+    min-height: 100%;
+    background-color: grey;
+    text-align: center;
+}
+/* .row-fluid {
+    text-align: center;
+} */
+footer {
+    text-align: center;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-color: beige;
+}
