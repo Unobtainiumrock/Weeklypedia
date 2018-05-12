@@ -1,5 +1,7 @@
 html, body {
     height: 100%;
+    overflow: hidden;
+    background-image: url("");
 }
 header {
     text-align: center;
@@ -10,12 +12,12 @@ img{
 }
 .container-fluid {
     min-height: 100%;
-    background-color: grey;
     text-align: center;
+
 }
-/* .row-fluid {
-    text-align: center;
-} */
+.btn{
+    margin: 20px;
+}
 footer {
     text-align: center;
     position: fixed;
