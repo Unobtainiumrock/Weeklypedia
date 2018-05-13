@@ -26,3 +26,9 @@ footer {
     width: 100%;
     background-color: beige;
 }
+.col-md-8{
+    background-color: gray;
+}
+.row{
+    margin:30px;
+}
