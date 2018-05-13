@@ -10,6 +10,11 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="src/style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker3.standalone.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
 </head>
 
 <body>
@@ -123,48 +128,46 @@
                 </div>
             </div>
         </div>
-   
 
 
-    <!-- Layout for interests/prefernces page -->
 
-    <!-- <div class="row-fluid"> -->
+        <!-- Layout for interests/prefernces page -->
+
+        <!-- <div class="row-fluid"> -->
         <!-- Eventbrite -->
-        <button type="button" class="btn btn-warning">Performing and Visual Arts</button>
-        <button type="button" class="btn btn-warning">Business and Professional</button>
-        <button type="button" class="btn btn-warning">Health and Wellness</button>
-        <button type="button" class="btn btn-warning">Family and Education</button>
-        <button type="button" class="btn btn-warning">Science and Technology</button>
-        <button type="button" class="btn btn-warning">Community and Culture</button>
-        <button type="button" class="btn btn-warning">Hobbies and Special Interests</button>
-        <button type="button" class="btn btn-warning">Film, Media and Entertainment</button>
-        <button type="button" class="btn btn-warning">Fashion and Beauty</button>
-        <button type="button" class="btn btn-warning">Sports and Fitness</button>
-        <button type="button" class="btn btn-warning">Travel and Outdoor</button>
+        <button type="button" class="btn btn-warning" data-prefNum>Performing and Visual Arts</button>
+        <button type="button" class="btn btn-warning" data-prefNum>Business and Professional</button>
+        <button type="button" class="btn btn-warning" data-prefNum>Health and Wellness</button>
+        <button type="button" class="btn btn-warning" data-prefNum>Family and Education</button>
+        <button type="button" class="btn btn-warning" data-prefNum>Science and Technology</button>
+        <button type="button" class="btn btn-warning" data-prefNum>Community and Culture</button>
+        <button type="button" class="btn btn-warning" data-prefNum>Hobbies and Special Interests</button>
+        <button type="button" class="btn btn-warning" data-prefNum>Film, Media and Entertainment</button>
+        <button type="button" class="btn btn-warning" data-prefNum>Fashion and Beauty</button>
+        <button type="button" class="btn btn-warning" data-prefNum>Sports and Fitness</button>
+
 
         <!-- HikingProject -->
-        
+        <button type="button" class="btn btn-success" data-trailById>Find Hiking Trails</button>
 
-
-
+        <!-- layout for plan page -->
+        <!-- Calendar -->
+        <div class="row">
+            <div class="col-md-4">
+                <div id="datepicker" data-date="01/01/2018"></div>
+            </div>
+            <div class="col-md-8">
+                Plan displayed Here!!
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Accept Plan</button>
+        <button type="button" class="btn btn-primary">New Plan</button>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-
 
     <footer>
         Copyright
     </footer>
+    <script src="src/javascript/components/calendar.js"></script>
 </body>
 
 </html>
