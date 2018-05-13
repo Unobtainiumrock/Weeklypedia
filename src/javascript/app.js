@@ -1,4 +1,15 @@
 
+$(document).ready(function() {
+    $('#bg-video').videoBackground("Adobe_Spark_Video_1.gif");
+  });
+  
+  var settings = {
+    autoplay: 'autoplay',
+    muted: 'muted',
+    loop: 'loop',
+    fit: 'fill', // changes the object-fit property of the video
+    src: 'Adobe_Spark_Video_1.gif' // url to video
+  }
 // USER STORY
 // User lands on home page this should our base html with sign-in/sign up button options in the nav.
 // button(somewhere in nav, `html elements`)
