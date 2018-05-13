@@ -10,164 +10,191 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="src/style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker3.standalone.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
 </head>
 
 <body>
-    <header>
-        <!-- Navbar content -->
-        <nav class="navbar sticky-top navbar-toggler">
-            <!-- Weeklypedia logo here -->
-            <img src="src/others/1j+ojl1FOMkX9WypfBe43D6kivWFqxVMnRzEwXs1M3EMoAJtlSIojvts8Ps4.png">
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Profile</button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Sign Up</button>
-                </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Sign In</button>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <!-- class container-fluid is used to get the width 100% and height 100%-->
+    <div id="overlay">
+        <div id="bg-video">
 
-    <div class="container-fluid">
-        <!-- Modal for Sign In -->
+            <!-- class container-fluid is used to get the width 100% and height 100%-->
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+            <div class="container-fluid">
+                <img class="fixed-ratio-resize" src="./unsplash_copy/Adobe_Spark_Video_1.gif" alt="gif">
+
+            </div>
+            <!-- Modal for Sign In -->
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
 
 
-                    <div class="modal-body">
-                        <form>
-                            <!-- Input box for Email -->
-                            <div class="form-group">
-                                <label for="inputEmail">Email address</label>
-                                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
-                                <small id="emailHelp" class="form-text text-muted"></small>
-                            </div>
-                            <!-- Input box for Password -->
-                            <div class="form-group">
-                                <label for="inputPassword">Password</label>
-                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                            </div>
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
+                        <div class="modal-body">
+                            <form>
+                                <!-- Input box for Email -->
+                                <div class="form-group">
+                                    <label for="inputEmail">Email address</label>
+                                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                                    <small id="emailHelp" class="form-text text-muted"></small>
+                                </div>
+                                <!-- Input box for Password -->
+                                <div class="form-group">
+                                    <label for="inputPassword">Password</label>
+                                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                </div>
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
 
-                    <!-- google sign in -->
-                    <div class="g-signin2" data-onsuccess="onSignIn">
-                        <a href="src/others/googlebutton.png"></a>
-                    </div>
-                    <!-- Facebook sign in -->
-                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false"
-                        data-auto-logout-link="false" data-use-continue-as="false"></div>
-                    <!-- Modal footer containing cancel and submit buttons -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Submit</button>
+                        <!-- google sign in -->
+                        <div class="g-signin2" data-onsuccess="onSignIn">
+                            <a href="src/others/googlebutton.png"></a>
+                        </div>
+                        <!-- Facebook sign in -->
+                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false"
+                            data-auto-logout-link="false" data-use-continue-as="false"></div>
+                        <!-- Modal footer containing cancel and submit buttons -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary">Submit</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Modal for Sign Up -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
+            <!-- Modal for Sign Up -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
 
-                        <form>
-                            <!-- Input box for Name -->
-                            <div class="form-group">
-                                <label for="inputEmail">Enter full name</label>
-                                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter full Name">
-                                <small id="emailHelp" class="form-text text-muted"></small>
-                            </div>
-                            <!-- Input box for Email -->
-                            <div class="form-group">
-                                <label for="inputEmail">Email address</label>
-                                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
-                                <small id="emailHelp" class="form-text text-muted"></small>
-                            </div>
-                            <!-- Input box for Password -->
-                            <div class="form-group">
-                                <label for="inputPassword">Password</label>
-                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                            </div>
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
-                    <!-- Modal footer containing cancel and submit buttons -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Submit</button>
+                            <form>
+                                <!-- Input box for Name -->
+                                <div class="form-group">
+                                    <label for="inputEmail">Enter full name</label>
+                                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter full Name">
+                                    <small id="emailHelp" class="form-text text-muted"></small>
+                                </div>
+                                <!-- Input box for Email -->
+                                <div class="form-group">
+                                    <label for="inputEmail">Email address</label>
+                                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                                    <small id="emailHelp" class="form-text text-muted"></small>
+                                </div>
+                                <!-- Input box for Password -->
+                                <div class="form-group">
+                                    <label for="inputPassword">Password</label>
+                                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                </div>
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                        <!-- Modal footer containing cancel and submit buttons -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary">Submit</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+
+
+            <!-- Layout for interests/prefernces page -->
+            <!-- <div id="overlay"> -->
+
+
+            <header id="overlay">
+                <!-- Navbar content -->
+                <nav class="navbar sticky-top navbar-toggler">
+                    <!-- Weeklypedia logo here -->
+                    <img src="src_copy/others/1j+ojl1FOMkX9WypfBe43D6kivWFqxVMnRzEwXs1M3EMoAJtlSIojvts8Ps4.png">
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Profile</button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Sign Up</button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Sign In</button>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+
+            <!-- <div class="row-fluid"> -->
+            <!-- Eventbrite -->
+            <button type="button" class="btn btn-warning">Performing and Visual Arts</button>
+            <button type="button" class="btn btn-warning">Business and Professional</button>
+            <button type="button" class="btn btn-warning">Health and Wellness</button>
+            <button type="button" class="btn btn-warning">Family and Education</button>
+            <button type="button" class="btn btn-warning">Science and Technology</button>
+            <button type="button" class="btn btn-warning">Community and Culture</button>
+            <button type="button" class="btn btn-warning">Hobbies and Special Interests</button>
+            <button type="button" class="btn btn-warning">Film, Media and Entertainment</button>
+            <button type="button" class="btn btn-warning">Fashion and Beauty</button>
+            <button type="button" class="btn btn-warning">Sports and Fitness</button>
+            <button type="button" class="btn btn-warning">Travel and Outdoor</button>
+
+            <!-- HikingProject -->
 
 
 
-        <!-- Layout for interests/prefernces page -->
-
-        <!-- <div class="row-fluid"> -->
-        <!-- Eventbrite -->
-        <button type="button" class="btn btn-warning" data-prefNum>Performing and Visual Arts</button>
-        <button type="button" class="btn btn-warning" data-prefNum>Business and Professional</button>
-        <button type="button" class="btn btn-warning" data-prefNum>Health and Wellness</button>
-        <button type="button" class="btn btn-warning" data-prefNum>Family and Education</button>
-        <button type="button" class="btn btn-warning" data-prefNum>Science and Technology</button>
-        <button type="button" class="btn btn-warning" data-prefNum>Community and Culture</button>
-        <button type="button" class="btn btn-warning" data-prefNum>Hobbies and Special Interests</button>
-        <button type="button" class="btn btn-warning" data-prefNum>Film, Media and Entertainment</button>
-        <button type="button" class="btn btn-warning" data-prefNum>Fashion and Beauty</button>
-        <button type="button" class="btn btn-warning" data-prefNum>Sports and Fitness</button>
+            <!-- </div>
+        </div> -->
 
 
-        <!-- HikingProject -->
-        <button type="button" class="btn btn-success" data-trailById>Find Hiking Trails</button>
 
-        <!-- layout for plan page -->
-        <!-- Calendar -->
-        <div class="row">
-            <div class="col-md-4">
-                <div id="datepicker" data-date="01/01/2018"></div>
-            </div>
-            <div class="col-md-8">
-                Plan displayed Here!!
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Accept Plan</button>
-        <button type="button" class="btn btn-primary">New Plan</button>
+
+
+
     </div>
 
+
     <footer>
-        Copyright
+        <div class="row">
+            <div class="col sm-6">
+                <p>
+                    WEEKLYPEDIA. The Coding Bootcamp  © 2018
+                </p>
+            </div>
+        </div>    
+
+        <!-- </div class="row" id="copyright"> -->
+            <!-- <div>
+                <p>
+                    © 2018
+                </p>
+            </div> -->
+        <!-- </div> -->
+        
     </footer>
-    <script src="src/javascript/components/calendar.js"></script>
+
+    </div>
+    </div>
+
+    </div>
+
+    <!-- <footer>
+        Copyright
+    </footer> -->
+    <script src="//code.jquery.com/jquery-3.1.0.slim.min.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
