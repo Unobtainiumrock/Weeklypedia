@@ -25,10 +25,13 @@ function calendar() {
     clearBtn: true,
   });
 
+// We only want the initia plan render to happen once 
+  var yourPlanInit = once(yourPlan);
 
   $('#datepicker').on('changeDate', function (e) {
+    
     // Create the plan and associated buttons
-    yourPlan();
+    yourPlanInit();
     // grab and format the selected date
     var dateOutput = formatDate(e.date);
     // give the "New Plan" button a data attribute with the formatted date
@@ -39,3 +42,4 @@ function calendar() {
   });
 
 }
+
