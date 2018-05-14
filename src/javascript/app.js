@@ -32,19 +32,19 @@
 // signIn();
 // note: the signIn() and signUp() can probably be merged into a single modal generator
 //signUp();         //g0I (Nick) can show an example of how that is done.
-interestButtonHolder();
-var interestString = "";
-$(document).on("click", ".interests", function (e) {
-  var interestCode = $(this).attr("data-interest-id") + ",";
-  interestString += interestCode;
-  console.log(interestString);
-  var interestName = $(this).text();
-  // console.log(interestCode);
-  database.ref(`/${interestName}`).set({
-    interestName: interestCode
-  })
-  $(this).remove();
-})
+// interestButtonHolder();
+// var interestString = "";
+// $(document).on("click", ".interests", function (e) {
+//   var interestCode = $(this).attr("data-interest-id") + ",";
+//   interestString += interestCode;
+//   console.log(interestString);
+//   var interestName = $(this).text();
+//   // console.log(interestCode);
+//   database.ref(`/${interestName}`).set({
+//     interestName: interestCode
+//   })
+//   $(this).remove();
+// })
 
 // console.log("Email from app.js:",email);
 // On sign-up, a user's login info is saved to firebase authentication, afterwards, they are presented the interests-picking view.
@@ -63,6 +63,6 @@ $(document).on("click", ".interests", function (e) {
 //   })
 // }
 
-
+calendar();
 // interestButtonHolder();
 
