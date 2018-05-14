@@ -58,20 +58,20 @@ function signIn() {
   </div>
 </div>`);
 
-var config = {
-    apiKey: "AIzaSyDWm9TMytWfvjceTHk3IyY1cPuYR5L_TyQ",
-    authDomain: "fir-b05cd.firebaseapp.com",
-    databaseURL: "https://fir-b05cd.firebaseio.com",
-    projectId: "fir-b05cd",
-    storageBucket: "fir-b05cd.appspot.com",
-    messagingSenderId: "203265362711"
-};
-firebase.initializeApp(config);
-var database = firebase.database();
-
+// var config = {
+//     apiKey: "AIzaSyDWm9TMytWfvjceTHk3IyY1cPuYR5L_TyQ",
+//     authDomain: "fir-b05cd.firebaseapp.com",
+//     databaseURL: "https://fir-b05cd.firebaseio.com",
+//     projectId: "fir-b05cd",
+//     storageBucket: "fir-b05cd.appspot.com",
+//     messagingSenderId: "203265362711"
+// };
+// firebase.initializeApp(config);
+// var database = firebase.database();
+var email;
 $("#login").click(function (event) {
     event.preventDefault();
-    var email = $("#email").val();
+    email = $("#email").val();
     console.log(email);
     database.ref().push({
        email: email
@@ -111,12 +111,12 @@ $("#login").click(function (event) {
 
 $("#signUp").click(function (event) {
     event.preventDefault();
-    var email = $("#email").val();
-    console.log(email);
+    email = $("#email").val();
+    console.log("Email:",email);
     var password = $("#password").val();
     var auth = firebase.auth();
     var promise = auth.createUserWithEmailAndPassword(email, password);
-    //console.log(promise);
+
 });
 
 ///////////////Saving user information to database

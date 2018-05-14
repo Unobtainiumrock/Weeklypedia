@@ -2,7 +2,7 @@
 // $(document).ready(function() {
 //     $('#bg-video').videoBackground("Adobe_Spark_Video_1.gif");
 //   });
-  
+
 //   var settings = {
 //     autoplay: 'autoplay',
 //     muted: 'muted',
@@ -29,10 +29,24 @@
 // Automatically render modals to the app container, since they remain hidden until one of the nav buttons trigger
 // them to appear/ user actions cause them to disappear.
 
- signIn();  // note: the signIn() and signUp() can probably be merged into a single modal generator
-// signUp();         g0I (Nick) can show an example of how that is done.
-//interestButtonHolder();
+// signIn();
+// note: the signIn() and signUp() can probably be merged into a single modal generator
+//signUp();         //g0I (Nick) can show an example of how that is done.
+interestButtonHolder();
+var interestString = "";
+$(document).on("click", ".interests", function (e) {
+  var interestCode = $(this).attr("data-interest-id") + ",";
+  interestString += interestCode;
+  console.log(interestString);
+  var interestName = $(this).text();
+  // console.log(interestCode);
+  database.ref(`/${interestName}`).set({
+    interestName: interestCode
+  })
+  $(this).remove();
+})
 
+// console.log("Email from app.js:",email);
 // On sign-up, a user's login info is saved to firebase authentication, afterwards, they are presented the interests-picking view.
 // this is also when the sign-in/sign-up buttons need to be cleared out of the nav.
 
