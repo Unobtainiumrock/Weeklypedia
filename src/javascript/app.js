@@ -10,6 +10,35 @@ navigator.geolocation.getCurrentPosition(function (position) {
 
 });
 
+// Make those nav sign-in/sign-up buttons generate via JQuery. @Mridula, we need the generic button generating
+// function we created, except make sure it can be provided different data for them to be:
+// modal-triggering buttons org user-preference buttons. The button generator will also need to take a
+// target DOM element as a parameter, since we won't be targeting our app container
+// directly with buttons. Our button maker will target the nav, and a generic JQuery generated container instead.
+
+// Use the modal examples from boostrap as an example for modal-triggering buttons.
+
+
+// Automatically render modals to the app container, since they remain hidden until one of the nav buttons trigger
+// them to appear/ user actions cause them to disappear.
+
+// signIn();
+// note: the signIn() and signUp() can probably be merged into a single modal generator
+//signUp();         //g0I (Nick) can show an example of how that is done.
+// interestButtonHolder();
+// var interestString = "";
+// $(document).on("click", ".interests", function (e) {
+//   var interestCode = $(this).attr("data-interest-id") + ",";
+//   interestString += interestCode;
+//   console.log(interestString);
+//   var interestName = $(this).text();
+//   // console.log(interestCode);
+//   database.ref(`/${interestName}`).set({
+//     interestName: interestCode
+//   })
+//   $(this).remove();
+// })
+
 //Make button holder
 interestButtonHolder();
 var interestString = [];
@@ -25,6 +54,7 @@ $(document).on("click", ".interests", function (e) {
   })
   $(this).remove();
 })
+
 
 console.log(ajaxCall('===========',lat, lng, interestString));
 // console.log("Email from app.js:",email);
@@ -44,6 +74,6 @@ console.log(ajaxCall('===========',lat, lng, interestString));
 //   })
 // }
 
-
+calendar();
 // interestButtonHolder();
 
