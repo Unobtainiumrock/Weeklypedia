@@ -1,43 +1,23 @@
 
-// $(document).ready(function() {
-//     $('#bg-video').videoBackground("Adobe_Spark_Video_1.gif");
-//   });
+navigator.geolocation.getCurrentPosition(function (position) {
 
-//   var settings = {
-//     autoplay: 'autoplay',
-//     muted: 'muted',
-//     loop: 'loop',
-//     fit: 'fill', // changes the object-fit property of the video
-//     src: 'Adobe_Spark_Video_1.gif' // url to video
-//   }
-// USER STORY
-// User lands on home page this should our base html with sign-in/sign up button options in the nav.
-// button(somewhere in nav, `html elements`)
-// button(somewhere in nav, `html elements`)
+  // Get the coordinates of the current position.
+  var lat = position.coords.latitude;
+  var lng = position.coords.longitude;
+  console.log(lat);
+  console.log(lng);
+  console.log(typeof lat);
 
+});
 
-
-// Make those nav sign-in/sign-up buttons generate via JQuery. @Mridula, we need the generic button generating
-// function we created, except make sure it can be provided different data for them to be:
-// modal-triggering buttons org user-preference buttons. The button generator will also need to take a
-// target DOM element as a parameter, since we won't be targeting our app container
-// directly with buttons. Our button maker will target the nav, and a generic JQuery generated container instead.
-
-// Use the modal examples from boostrap as an example for modal-triggering buttons.
-
-
-// Automatically render modals to the app container, since they remain hidden until one of the nav buttons trigger
-// them to appear/ user actions cause them to disappear.
-
-// signIn();
-// note: the signIn() and signUp() can probably be merged into a single modal generator
-//signUp();         //g0I (Nick) can show an example of how that is done.
+//Make button holder
 interestButtonHolder();
-var interestString = "";
+var interestString = [];
 $(document).on("click", ".interests", function (e) {
-  var interestCode = $(this).attr("data-interest-id") + ",";
-  interestString += interestCode;
-  console.log(interestString);
+  var interestCode = $(this).attr("data-interest-id");
+  // interestString += interestCode;
+  interestString.push(interestCode);
+  // console.log(interestString);
   var interestName = $(this).text();
   // console.log(interestCode);
   database.ref(`/${interestName}`).set({
@@ -46,6 +26,7 @@ $(document).on("click", ".interests", function (e) {
   $(this).remove();
 })
 
+console.log(ajaxCall('===========',lat, lng, interestString));
 // console.log("Email from app.js:",email);
 // On sign-up, a user's login info is saved to firebase authentication, afterwards, they are presented the interests-picking view.
 // this is also when the sign-in/sign-up buttons need to be cleared out of the nav.
