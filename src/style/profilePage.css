@@ -12,3 +12,6 @@ input {
     outline: none;
     border-bottom: 2px solid #eaeaea;
   }
+  .row-fluid{
+    background-color:black;
+  }

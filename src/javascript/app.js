@@ -6,13 +6,16 @@ var lat;
 var pickInterestsInit = once(pickInterests);
 
 //-------------------App beginning----------------------------------------------
-// Renders the 
+// Renders the sign-in modal to the landing page. This remains hidden until the user clicks the 
+// Sign in / Sign up button to have the moal render.
 signIn();
 
 //--------------------Event Listner for Sign In/Sign Up---------------------------
 
+
 $(document).on('click', '#login', function (event) {
   event.preventDefault();
+  // Grab the email and password and store them on global variables
   email = $('#email').val();
   password = $('#password').val();
 
@@ -84,6 +87,10 @@ $(document).on('click', '#next-button', function (e) {
 
 $(document).on('click','#profile',function() {
   profileSettings();
+})
+
+$(document).on('click','#go-preferences',function() {
+  pickInterests();
 })
 
 // FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS

@@ -1,7 +1,7 @@
 
 function profileSettings() {
   $('#app').html(`
-  <div class="row">
+  <div class="row-fluid">
   <div class="col-md-8">
     <h2>Profile Settings</h2>
     <form>
@@ -15,7 +15,7 @@ function profileSettings() {
       </div>
       <div class="field">
         <label for="preferences">Change Preferences</label>
-        <button type="button" class="btn btn-warning">Go to Preferences</button>
+        <button type="button" class="btn btn-warning" id="go-preferences">Go to Preferences</button>
       </div>
     </form>
     <a href="#">
