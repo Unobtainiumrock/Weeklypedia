@@ -1,11 +1,11 @@
 
 var config = {
-  apiKey: "AIzaSyA2igfLz1tMzwHdku-nsZ99q90572EpfrM",
-  authDomain: "weeklypedia-users.firebaseapp.com",
-  databaseURL: "https://weeklypedia-users.firebaseio.com",
-  projectId: "weeklypedia-users",
+  apiKey: "AIzaSyA4JOJoxu7FZFEbcBooN0CKxCtgNnoWbYo",
+  authDomain: "weeklypedia-dc07e.firebaseapp.com",
+  databaseURL: "https://weeklypedia-dc07e.firebaseio.com",
+  projectId: "weeklypedia-dc07e",
   storageBucket: "",
-  messagingSenderId: "121169569569"
+  messagingSenderId: "443563459251"
 };
 firebase.initializeApp(config);
 
