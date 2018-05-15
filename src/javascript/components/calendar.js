@@ -8,9 +8,9 @@ function calendar() {
 
   </div>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4" id="button-view">
     </div>
-    <div class="col-md-6" id="button-view">
+    <div class="col-md-6">
     </div>
   </div>     
 `);
