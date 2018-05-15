@@ -1,12 +1,11 @@
 
 function yourPlan(startDate,preferences,coordinates) {
-  // console.log(startDate);
-  // console.log(preferences);
-  // console.log(coordinates);
+
+  var planDiv = $('<div class="col-md-8" id="plan-view">');
+  planDiv.text('You Plan is being made, hold tight!');
   ajaxCall(startDate,preferences,coordinates)
     .then(function(response) {
-      var planDiv = $('<div class="col-md-8" id="plan-view">');
-
+      planDiv.text('');
       // Call data
       var eventName = response.events[0].name.html;
       var eventDescription = response.events[0].description.html;
