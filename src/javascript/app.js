@@ -8,10 +8,10 @@ var pickInterestsInit = once(pickInterests);
 //-------------------App beginning----------------------------------------------
 // Renders the sign-in modal to the landing page. This remains hidden until the user clicks the 
 // Sign in / Sign up button to have the moal render.
-signIn();
+
+  /*Step 1 */signIn();
 
 //--------------------Event Listner for Sign In/Sign Up---------------------------
-
 
 $(document).on('click', '#login', function (event) {
   event.preventDefault();
@@ -19,15 +19,15 @@ $(document).on('click', '#login', function (event) {
   email = $('#email').val();
   password = $('#password').val();
 
-  var auth = firebase.auth();
+  
+  // var auth = firebase.auth();
   var promise = auth.signInWithEmailAndPassword(email, password).catch(function (error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log('Sorry :(');
-  });
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  console.log("Sorry :( That user email and password don't exist, or are incorrect");
+});
 
-  firebase.auth().onAuthStateChanged(firebaseUser => {
+  auth.onAuthStateChanged(function(firebaseUser) {
 
     if (firebaseUser) {
 
@@ -43,27 +43,26 @@ $(document).on('click', '#login', function (event) {
   });
 
 });
-///-----------------
 
 // Firebase listeners Firebase listeners Firebase listeners Firebase listeners Firebase listeners Firebase listeners
-firebase.auth().onAuthStateChanged(firebaseUser => {
+auth.onAuthStateChanged(function(firebaseUser) {
   if (firebaseUser) {
-    database.ref(firebaseUser.uid).set({
+    database.ref(firebaseUser.uid).update({
       email: firebaseUser.email
     });
   }
 });
 
 
-firebase.auth().signOut().then(function () {
+// firebase.auth().signOut().then(function () {
 
-}).catch(function (error) {
+// }).catch(function (error) {
 
-});
+// });
 
 // JQuery Listenters JQuery Listenters JQuery Listenters JQuery Listenters JQuery Listenters
 
-$('#signUp').click(function (event) {
+$(document).on('click','#signUp',function (event) {
   event.preventDefault();
   console.log('test1');
   email = $('#email').val();
@@ -101,10 +100,3 @@ function saveInterests(interestID, interestText) {
     [interestText]: interestID
   });
 }
-
-
-// var getPosition = function () {
-//   return new Promise(function (resolve, reject) {
-//     navigator.geolocation.getCurrentPosition(resolve, reject);
-//   });
-// }
