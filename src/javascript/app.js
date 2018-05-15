@@ -70,10 +70,6 @@ $('#signUp').click(function (event) {
 
 });
 
-// $(document).on('click','#test-button',function() {
-//   console.log(getUserPreferences());
-// })
-
 $(document).on('click', '.interests', function (e) {
   var interestID = $(this).attr('data-interest-id');
   var interestText = $(this).text();
