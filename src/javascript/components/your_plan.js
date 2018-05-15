@@ -14,16 +14,11 @@ function yourPlan(startDate,preferences,coordinates) {
       var startDate = response.events[0].start.local;
       var categoryID = response.events[0].category_id;
 
-      planDiv.append(eventName);
-      planDiv.append('====================');
-      planDiv.append(eventDescription);
-      planDiv.append('====================');
-      planDiv.append(eventURL);
-      planDiv.append('====================');
-      planDiv.append(startDate);
-      planDiv.append('====================');
-      planDiv.append(categoryID);
-      planDiv.append('====================');
+      planDiv.append('****' + eventName + '****');
+      planDiv.append('****' + eventDescription + '****');
+      planDiv.append('****' + eventURL + '****');
+      planDiv.append('****' + startDate + '****');
+      planDiv.append('****' + categoryID + '****');
 
       $('#calendar-view').append(planDiv);
       buttonMaker('#button-view','Accept Plan',[{type: 'submit'},{class: 'btn btn-primary'}, {id: 'accept-plan'}]);
