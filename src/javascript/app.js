@@ -8,6 +8,19 @@ var pickInterestsInit = once(pickInterests);
 //-------------------App beginning----------------------------------------------
 signIn();
 
+getPosition()
+  .then(function(coordinates) {
+    console.log(coordinates);
+    // weatherCall(coordinates);
+    // console.log('call finished');
+    return new Promise(function(coordinates,reject) {
+      weatherCall(coordinates);
+    })
+  }).then(function(data) {
+    console.log(data);
+    console.log('done running!');
+  })
+
 //--------------------Event Listner for Sign In/Sign Up---------------------------
 
 $(document).on('click', '#login', function (event) {
