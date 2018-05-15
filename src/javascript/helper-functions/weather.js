@@ -14,7 +14,7 @@ function weatherCall(coordinates) {
     'lon': coordinates.longitude,
     'APPID':openWeather_API
 })
-
+  console.log(openWeatherURL);
   return $.ajax({
     url: openWeatherURL,
     method: 'GET'
