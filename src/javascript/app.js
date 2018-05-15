@@ -1,70 +1,123 @@
 
-navigator.geolocation.getCurrentPosition(function (position) {
+// navigator.geolocation.getCurrentPosition(function (position) {
 
-  // Get the coordinates of the current position.
-  var lat = position.coords.latitude;
-  var lng = position.coords.longitude;
-  console.log(lat);
-  console.log(lng);
-  console.log(typeof lat);
+//   // Get the coordinates of the current position.
+//   var lat = position.coords.latitude;
+//   var lng = position.coords.longitude;
+//   console.log(lat);
+//   console.log(lng);
+//   console.log(typeof lat);
+
+// });
+//-------------------App beginning--------------------
+signIn();
+
+
+//--------------------Event Listner for Sign In/Sign Up---------------------------
+var email;
+var password;
+var userID;
+
+
+$(document).on("click", "#login", function (event) {
+  event.preventDefault();
+  console.log("test");
+  email = $("#email").val();
+  console.log(email);
+  password = $("#password").val();
+  console.log(password);
+  var auth = firebase.auth();
+  var promise = auth.signInWithEmailAndPassword(email, password).catch(function (error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log("Sorry :(");
+    // ...
+  });
+
+  var pickInterestsInit = once(pickInterests);
+
+  firebase.auth().onAuthStateChanged(firebaseUser => {
+
+    if (firebaseUser) {
+
+      database.ref(firebaseUser.uid).on("value", function (snapshot) {
+        console.log("Snapshot:", snapshot.key);
+        console.log("Welcome, " + snapshot.val().email);
+        userID = snapshot.key;
+        pickInterestsInit();
+        $(".modal-backdrop").remove();
+      });
+    }
+
+  });
 
 });
-
-// Make those nav sign-in/sign-up buttons generate via JQuery. @Mridula, we need the generic button generating
-// function we created, except make sure it can be provided different data for them to be:
-// modal-triggering buttons org user-preference buttons. The button generator will also need to take a
-// target DOM element as a parameter, since we won't be targeting our app container
-// directly with buttons. Our button maker will target the nav, and a generic JQuery generated container instead.
-
-// Use the modal examples from boostrap as an example for modal-triggering buttons.
+///-----------------
 
 
-// Automatically render modals to the app container, since they remain hidden until one of the nav buttons trigger
-// them to appear/ user actions cause them to disappear.
+///////////////Saving user information to database
 
-// signIn();
-// note: the signIn() and signUp() can probably be merged into a single modal generator
-//signUp();         //g0I (Nick) can show an example of how that is done.
-// interestButtonHolder();
-// var interestString = "";
-// $(document).on("click", ".interests", function (e) {
-//   var interestCode = $(this).attr("data-interest-id") + ",";
-//   interestString += interestCode;
-//   console.log(interestString);
-//   var interestName = $(this).text();
-//   // console.log(interestCode);
-//   database.ref(`/${interestName}`).set({
-//     interestName: interestCode
-//   })
-//   $(this).remove();
-// })
+$("#signUp").click(function (event) {
+  event.preventDefault();
+  console.log("test1");
+  email = $("#email").val();
+  console.log("Email:", email);
+  var password = $("#password").val();
+  var auth = firebase.auth();
+  var promise = auth.createUserWithEmailAndPassword(email, password);
 
-//Make button holder
-interestButtonHolder();
-var interestString = [];
+});
+firebase.auth().onAuthStateChanged(firebaseUser => {
+  if (firebaseUser) {
+    database.ref(firebaseUser.uid).set({
+      email: firebaseUser.email
+    });
+  }
+});
+
+/////sign out 
+
+firebase.auth().signOut().then(function () {
+  // Sign-out successful.
+}).catch(function (error) {
+  // An error happened.
+});
+////signin using google
+
+//-----------------------------------------------
+
+
 $(document).on("click", ".interests", function (e) {
-  var interestCode = $(this).attr("data-interest-id");
-  // interestString += interestCode;
-  interestString.push(interestCode);
-  // console.log(interestString);
-  var interestName = $(this).text();
-  // console.log(interestCode);
-  database.ref(`/${interestName}`).set({
-    interestName: interestCode
-  })
+  var interestID = $(this).attr("data-interest-id");
+  var interestText = $(this).text();
+  saveInterests(interestID, interestText);
   $(this).remove();
 })
 
+// {
+//   {
+//     // $(document).on("click", "#next", function(){
+    //   database.ref(`/${userID}`).update({
 
-console.log(ajaxCall('===========',lat, lng, interestString));
+    //   })
+    // })
+
+
+    function saveInterests(interestID, interestText) {
+     
+      database.ref(`/${userID}`).update({
+       [interestText]: interestID
+      });
+    }
+
+//Make button holder
+// interestButtonHolder();
+
+
+
+// console.log(ajaxCall('===========',lat, lng, interestArray));
 // console.log("Email from app.js:",email);
-// On sign-up, a user's login info is saved to firebase authentication, afterwards, they are presented the interests-picking view.
-// this is also when the sign-in/sign-up buttons need to be cleared out of the nav.
-
-// On sign-in, a user is directed to their plan view.
-// createContainer() for housing all the buttons
-// createButton() equal to the number of interests to pick from and target the generic container to put them in
-// note: we put them all in a container, so that we can have them all simultaneously animate into view to the user.
 
 // if(true/*User already has preferences*/) {
 //   calendar();
@@ -74,6 +127,6 @@ console.log(ajaxCall('===========',lat, lng, interestString));
 //   })
 // }
 
-calendar();
-// interestButtonHolder();
+// calendar();
+
 

@@ -1,9 +1,10 @@
 
-function interestButtonHolder() {
+function pickInterests() {
   // Create a button div and render it to the app
   var buttonDiv = $('<div id="button-interest-holder">');
+ 
+  var nextDiv = $('<div id="next-button">');
   $('#app').html(buttonDiv);
-
   // Make an array of objects for interests here. Make the keys the interest name and the values as
   // the associated code for that interest.
 
@@ -14,5 +15,7 @@ function interestButtonHolder() {
     console.log(interestArray);
     buttonMaker('#button-interest-holder', interestArray[0], [{ 'data-interest-id': interestArray[1] }, { class: 'btn btn-warning interests' }])
   })
-
+  // $('#button-interest-holder').append(emptyDiv);
+  $('#button-interest-holder').append(nextDiv);
+  buttonMaker('#next-button', 'Next →',[{type: 'submit'}, {class: 'btn btn-primary'},{id: 'next'}]);
 }
