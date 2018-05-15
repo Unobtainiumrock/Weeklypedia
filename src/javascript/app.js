@@ -4,23 +4,9 @@ var password;
 var userID;
 var lat;
 var pickInterestsInit = once(pickInterests);
+
 //-------------------App beginning----------------------------------------------
-// signIn();
-// calendar();
-// function getLocation() {
-
-//   navigator.geolocation.getCurrentPosition(function (position) {
-
-//     // Get the coordinates of the current position.
-//     var lat = position.coords.latitude;
-//     var lng = position.coords.longitude;
-//     console.log(lat);
-//     console.log(lng);
-//     console.log(typeof lat);
-
-//   });
-// }
-console.log(getLocation());
+signIn();
 
 //--------------------Event Listner for Sign In/Sign Up---------------------------
 
@@ -95,7 +81,7 @@ $(document).on('click', '.interests', function (e) {
   $(this).remove();
 })
 
-$(document).on('click','#next-button',function(e) {
+$(document).on('click', '#next-button', function (e) {
   calendar();
 })
 
@@ -108,22 +94,9 @@ function saveInterests(interestID, interestText) {
   });
 }
 
-function getLocation() {
 
-  var result;
-  var hasCoords = false;
-
-  navigator.geolocation.getCurrentPosition(function (position) {
-
-    // Get the coordinates of the current position.
-    var lat = position.coords.latitude;
-    var lng = position.coords.longitude;
-    var coordinates = [lat,lng];
-    return 
-  })
-
-  // if()
-
-  return result;
-
-}
+// var getPosition = function () {
+//   return new Promise(function (resolve, reject) {
+//     navigator.geolocation.getCurrentPosition(resolve, reject);
+//   });
+// }
