@@ -1,8 +1,12 @@
 html, body {
     height: 100%;
-    overflow: hidden;
-    background-image: url("");
+    /* overflow: hidden;  */
+
 }
+body {
+    display: flex;
+    flex-direction: column;
+  }
 header {
     text-align: center;
     background-color: beige;
@@ -10,24 +14,26 @@ header {
 img{
     display: block;
 }
-.container-fluid {
-    min-height: 100%;
+.container{
+    /* min-height: 100%; */
     text-align: center;
-
+    flex: 1 0 auto;
 }
 .btn{
     margin: 20px;
 }
-footer {
+.footer {
     text-align: center;
-    position: fixed;
+    /* position: fixed;
     left: 0px;
     bottom: 0px;
-    width: 100%;
+    width: 100%; */
     background-color: beige;
+    flex-shrink: 0;
 }
 .col-md-8{
-    background-color: gray;
+    /* background-color: gray; */
+    flex: 1 0 auto;
 }
 .row{
     margin:30px;
