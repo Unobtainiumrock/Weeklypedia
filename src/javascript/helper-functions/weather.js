@@ -7,7 +7,7 @@
  */
 function weatherCall(coordinates) {
   var openWeather_API = "4520ee483b4c4d9db14210544181305";
-  var openWeatherURL = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather";
+  var openWeatherURL = "https://api.openweathermap.org/data/2.5/weather";
 
   openWeatherURL += '?' + $.param({
     'lat': coordinates.latitude,
