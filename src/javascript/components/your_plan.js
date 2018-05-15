@@ -44,7 +44,7 @@ function yourPlan(startDate,preferences,coordinates) {
           /*var planDiv = $('<div class="col-md-8" id="plan-view">');
           $('#calendar-view').append(planDiv);
           buttonMaker('#button-view','Accept Plan',[{type: 'submit'},{class: 'btn btn-primary'}, {id: 'accept-plan'}]);
-          buttonMaker('#button-view','New Plan',[{type: 'button'},{class: 'btn btn-primary'},{id: 'new-plan'}]);*
+          buttonMaker('#button-view','New Plan',[{type: 'button'},{class: 'btn btn-primary'},{id: 'new-plan'}]);*/
     // })
 
 }
