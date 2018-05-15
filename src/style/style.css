@@ -32,7 +32,9 @@ footer {
 .row{
     margin:30px;
 }
-
+#next-button{
+    text-align: right;
+}
 /* html, body {
     height: 100%;
     background-size: cover;
