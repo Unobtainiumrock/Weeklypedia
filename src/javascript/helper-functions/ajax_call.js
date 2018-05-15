@@ -22,11 +22,11 @@ function ajaxCall(startDate, preferences, coordinates) {
     //'start_date.range_end':
     'location.within': '10mi'
   })
-  // https://cors-anywhere.herokuapp.com/https://www.eventbriteapi.com/v3/events/search?token=AECV6ECEY7DZIFOORUTH&location.latitude=37.7745239&location.longitude=-122.4671819&categories=101%2C110%2C105&location.within=20mi
-  $.ajax({
+
+  return $.ajax({
     url: eventBriteURL,
     method: 'GET'
-  }).then(function (response) {
+  })/*.then(function (response) {
     console.log(response);
     for (var i = 0; i < 10; i++) {
       var eventName = response.events[i].name.text;
@@ -43,6 +43,6 @@ function ajaxCall(startDate, preferences, coordinates) {
       console.log("category ID:", categoryID);
     }
 
-  })
+  })*/
 
 }   
