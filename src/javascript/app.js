@@ -1,41 +1,42 @@
 
-// navigator.geolocation.getCurrentPosition(function (position) {
-
-//   // Get the coordinates of the current position.
-//   var lat = position.coords.latitude;
-//   var lng = position.coords.longitude;
-//   console.log(lat);
-//   console.log(lng);
-//   console.log(typeof lat);
-
-// });
-//-------------------App beginning--------------------
-signIn();
-
-
-//--------------------Event Listner for Sign In/Sign Up---------------------------
 var email;
 var password;
 var userID;
+var lat;
+var pickInterestsInit = once(pickInterests);
 
+
+//-------------------App beginning----------------------------------------------
+signIn();
+
+function getLocation() {
+
+  navigator.geolocation.getCurrentPosition(function (position) {
+
+    // Get the coordinates of the current position.
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    console.log(lat);
+    console.log(lng);
+    console.log(typeof lat);
+
+  });
+}
+
+//--------------------Event Listner for Sign In/Sign Up---------------------------
 
 $(document).on("click", "#login", function (event) {
   event.preventDefault();
-  console.log("test");
   email = $("#email").val();
-  console.log(email);
   password = $("#password").val();
-  console.log(password);
+
   var auth = firebase.auth();
   var promise = auth.signInWithEmailAndPassword(email, password).catch(function (error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
     console.log("Sorry :(");
-    // ...
   });
-
-  var pickInterestsInit = once(pickInterests);
 
   firebase.auth().onAuthStateChanged(firebaseUser => {
 
@@ -55,8 +56,23 @@ $(document).on("click", "#login", function (event) {
 });
 ///-----------------
 
+// Firebase listeners Firebase listeners Firebase listeners Firebase listeners Firebase listeners Firebase listeners
+firebase.auth().onAuthStateChanged(firebaseUser => {
+  if (firebaseUser) {
+    database.ref(firebaseUser.uid).set({
+      email: firebaseUser.email
+    });
+  }
+});
 
-///////////////Saving user information to database
+
+firebase.auth().signOut().then(function () {
+
+}).catch(function (error) {
+
+});
+
+// JQuery Listenters JQuery Listenters JQuery Listenters JQuery Listenters JQuery Listenters
 
 $("#signUp").click(function (event) {
   event.preventDefault();
@@ -68,25 +84,6 @@ $("#signUp").click(function (event) {
   var promise = auth.createUserWithEmailAndPassword(email, password);
 
 });
-firebase.auth().onAuthStateChanged(firebaseUser => {
-  if (firebaseUser) {
-    database.ref(firebaseUser.uid).set({
-      email: firebaseUser.email
-    });
-  }
-});
-
-/////sign out 
-
-firebase.auth().signOut().then(function () {
-  // Sign-out successful.
-}).catch(function (error) {
-  // An error happened.
-});
-////signin using google
-
-//-----------------------------------------------
-
 
 $(document).on("click", ".interests", function (e) {
   var interestID = $(this).attr("data-interest-id");
@@ -95,38 +92,27 @@ $(document).on("click", ".interests", function (e) {
   $(this).remove();
 })
 
-// {
-//   {
-//     // $(document).on("click", "#next", function(){
-    //   database.ref(`/${userID}`).update({
+// FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS
 
-    //   })
-    // })
+function saveInterests(interestID, interestText) {
 
+  database.ref(`/${userID}`).update({
+    [interestText]: interestID
+  });
+}
 
-    function saveInterests(interestID, interestText) {
-     
-      database.ref(`/${userID}`).update({
-       [interestText]: interestID
-      });
-    }
+function getLocation() {
 
-//Make button holder
-// interestButtonHolder();
+  navigator.geolocation.getCurrentPosition(function (position) {
 
+    // Get the coordinates of the current position.
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    console.log(lat);
+    console.log(lng);
+    console.log(typeof lat);
 
-
-// console.log(ajaxCall('===========',lat, lng, interestArray));
-// console.log("Email from app.js:",email);
-
-// if(true/*User already has preferences*/) {
-//   calendar();
-//   // calendar calls yourPlan(), which calls
-//   $(document).on('click','#new-plan',function(e) {
-//     console.log('I was clicked!');
-//   })
-// }
-
-// calendar();
+  });
+}
 
 
