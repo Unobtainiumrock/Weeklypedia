@@ -6,6 +6,7 @@ var lat;
 var pickInterestsInit = once(pickInterests);
 
 //-------------------App beginning----------------------------------------------
+// Renders the 
 signIn();
 
 //--------------------Event Listner for Sign In/Sign Up---------------------------
@@ -79,6 +80,10 @@ $(document).on('click', '.interests', function (e) {
 
 $(document).on('click', '#next-button', function (e) {
   calendar();
+})
+
+$(document).on('click','#profile',function() {
+  profileSettings();
 })
 
 // FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS FUNCTIONS
