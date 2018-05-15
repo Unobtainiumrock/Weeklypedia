@@ -1,22 +1,19 @@
 
-// function getLocation() {
+function promisedPosition() {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+}
 
-//   var result;
-
-//   navigator.geolocation.getCurrentPosition(function (position) {
-
-//     // Get the coordinates of the current position.
-//     var lat = position.coords.latitude;
-//     var lng = position.coords.longitude;
-//     // console.log(lat);
-//     // console.log(lng);
-//     // console.log(typeof lat);
-//     result = {
-//       lat,
-//       lng
-//     }
-//   });
-//   console.log(result);
-//   return result;
-
-// }
+function getPosition() {
+  return promisedPosition()
+    .then(function (position) {
+      let userCoordinates = {};
+      userCoordinates.latitude = position.coords.latitude;
+      userCoordinates.longitude = position.coords.longitude;
+      return userCoordinates;
+    })
+    .catch(function (err) {
+      console.error(err.message);
+    });
+}

@@ -1,8 +1,9 @@
 
-function yourPlan(date,preferences) {
+function yourPlan(date,preferences,coordinates) {
   console.log(date);
   console.log(preferences);
-  // date, preferences, lat, long 
+  console.log(coordinates);
+  // lat, long  }
     /*render our plan for the day*/
     // $.ajax({
   

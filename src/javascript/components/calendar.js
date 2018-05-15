@@ -29,10 +29,13 @@ function calendar() {
   $('#datepicker').on('changeDate', function (e) {
     var dateOutput = formatDate(e.date);
     var preferences = getUserPreferences();
-    // var latitude = ;
-    // var longitude = ;
+    
+    getPosition()
+      .then(function(coordinates) {
+        yourPlanInit(dateOutput,preferences,coordinates);
+      })
     // Create the plan and associated buttons
-    yourPlanInit(dateOutput,preferences,latitude,longitude);
+    // yourPlanInit(dateOutput,preferences,latitude,longitude);
     // grab and format the selected date
     // give the "New Plan" button a data attribute with the formatted date
     $('#new-plan').attr('data-date',dateOutput);
