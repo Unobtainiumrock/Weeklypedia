@@ -6,7 +6,7 @@
  * @param  {string} preferences: is comma separated category ID's
  */
 function weatherCall(coordinates) {
-  var openWeather_API = "4520ee483b4c4d9db14210544181305";
+  var openWeather_API = "3059d78de2328524fb8d73d25171deab";
   var openWeatherURL = "https://api.openweathermap.org/data/2.5/weather";
 
   openWeatherURL += '?' + $.param({
