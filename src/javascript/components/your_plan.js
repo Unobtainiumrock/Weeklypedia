@@ -1,9 +1,9 @@
 
-function yourPlan(date,preferences,coordinates) {
-  console.log(date);
+function yourPlan(startDate,preferences,coordinates) {
+  console.log(startDate);
   console.log(preferences);
   console.log(coordinates);
-  // lat, long  }
+  ajaxCall(startDate,preferences,coordinates);
     /*render our plan for the day*/
     // $.ajax({
   
