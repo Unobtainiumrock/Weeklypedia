@@ -12,7 +12,7 @@ function pickInterests() {
 
   // Iterate the array of interest arrays 
   interests.forEach(function (interestArray) {
-    console.log(interestArray);
+    // console.log(interestArray);
     buttonMaker('#button-interest-holder', interestArray[0], [{ 'data-interest-id': interestArray[1] }, { class: 'btn btn-warning interests' }])
   })
   // $('#button-interest-holder').append(emptyDiv);

@@ -1,13 +1,11 @@
 
 function calendar() {
-
   $('#app').html(`
   <div class="row" id="calendar-view">
     <div class="col-md-4">
       <div class="date" id="datepicker"></div>
     </div>
-    <div class="col-md-7">
-    </div>
+
   </div>
   <div class="row">
     <div class="col-md-4">
@@ -25,20 +23,20 @@ function calendar() {
     clearBtn: true,
   });
 
-// We only want the initia plan render to happen once 
+// We only want the initial plan render to happen once 
   var yourPlanInit = once(yourPlan);
 
   $('#datepicker').on('changeDate', function (e) {
-    
-    // Create the plan and associated buttons
-    yourPlanInit();
-    // grab and format the selected date
     var dateOutput = formatDate(e.date);
+    var preferences = getUserPreferences();
+    // var latitude = ;
+    // var longitude = ;
+    // Create the plan and associated buttons
+    yourPlanInit(dateOutput,preferences,latitude,longitude);
+    // grab and format the selected date
     // give the "New Plan" button a data attribute with the formatted date
     $('#new-plan').attr('data-date',dateOutput);
     
-    // console.log(dateOutput);
-
   });
 
 }
