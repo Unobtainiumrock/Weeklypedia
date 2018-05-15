@@ -8,7 +8,7 @@ function calendar() {
 
   </div>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4>
     </div>
     <div class="col-md-6" id="button-view">
     </div>
@@ -32,15 +32,27 @@ function calendar() {
     
     getPosition()
       .then(function(coordinates) {
+
+        // Call yourPlanInit which renders the user plan once, which contains the single API call to Eventbrite
+        // for the initial plan render
         yourPlanInit(dateOutput,preferences,coordinates);
+        // Call weather API and add response data to Nav
+        weatherCall(coordinates)
+          .then(function(weatherData) {
+            console.log(weatherData);
+            var lowOf = weatherData.main.temp_min;
+            var highOf = weatherData.main.temp_max;
+            $('#weather').html(
+              `${weatherData.name} High: ${highOf}˚F Low: ${lowOf}˚F`
+            );
+          })
       })
-    // Create the plan and associated buttons
-    // yourPlanInit(dateOutput,preferences,latitude,longitude);
-    // grab and format the selected date
-    // give the "New Plan" button a data attribute with the formatted date
+
+      // Constantly updates the 'new plan' button's data attribute with the date selected on the
+      // calendar. We did this, so that you can randomly generate a new plan, by clicking the new 
+      // plan button, which will use its own data attribute in a new Eventbrite API call.
     $('#new-plan').attr('data-date',dateOutput);
     
   });
 
 }
-

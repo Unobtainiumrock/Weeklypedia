@@ -8,15 +8,6 @@ var pickInterestsInit = once(pickInterests);
 //-------------------App beginning----------------------------------------------
 signIn();
 
-// Display the weather to the user
-getPosition()
-  .then(function(coordinates) {
-    weatherCall(coordinates)
-      .then(function(weatherData) {
-        console.log(weatherData);
-      })
-  })
-
 //--------------------Event Listner for Sign In/Sign Up---------------------------
 
 $(document).on('click', '#login', function (event) {

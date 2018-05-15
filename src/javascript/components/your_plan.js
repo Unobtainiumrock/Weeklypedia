@@ -1,8 +1,8 @@
 
 function yourPlan(startDate,preferences,coordinates) {
-  console.log(startDate);
-  console.log(preferences);
-  console.log(coordinates);
+  // console.log(startDate);
+  // console.log(preferences);
+  // console.log(coordinates);
   ajaxCall(startDate,preferences,coordinates)
     .then(function(response) {
       var planDiv = $('<div class="col-md-8" id="plan-view">');
