@@ -10,15 +10,10 @@ signIn();
 
 getPosition()
   .then(function(coordinates) {
-    console.log(coordinates);
-    // weatherCall(coordinates);
-    // console.log('call finished');
-    return new Promise(function(coordinates,reject) {
-      weatherCall(coordinates);
-    })
-  }).then(function(data) {
-    console.log(data);
-    console.log('done running!');
+    weatherCall(coordinates)
+      .then(function(weatherData) {
+        console.log(weatherData);
+      })
   })
 
 //--------------------Event Listner for Sign In/Sign Up---------------------------
