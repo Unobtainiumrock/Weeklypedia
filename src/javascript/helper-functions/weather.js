@@ -12,7 +12,8 @@ function weatherCall(coordinates) {
   openWeatherURL += '?' + $.param({
     'lat': coordinates.latitude,
     'lon': coordinates.longitude,
-    'APPID':openWeather_API
+    'APPID':openWeather_API,
+    'units': 'imperial'
 })
   console.log(openWeatherURL);
   return $.ajax({
