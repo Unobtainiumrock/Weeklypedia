@@ -33,21 +33,8 @@ function signIn() {
                  
                   <button type="button" class="btn btn-secondary" data-dismiss="modal" id="signUp">Sign Up</button>
                   <button type="button" class="btn btn-primary" id="login">Sign In</button>
-                  <button type="button" class="btn btn-secondary" id="googleBtn">Sign In using google</button>
-                  <button type="button" class="btn btn-secondary" id="googleSignOutBtn">Sign Out using Google</button>
-                  <button type="button" class="btn btn-secondary" onclick="facebookSignin()">Sign in with Facebook</button>
-                  <button type="button" class="btn btn-secondary" onclick="facebookSignout()">Facebook Signout</button>
-                  
               </form>
           </div>
-
-          <!-- google sign in -->
-          <div class="g-signin2" data-onsuccess="onSignIn">
-              <a href="src/others/googlebutton.png"></a>
-          </div>
-          <!-- Facebook sign in -->
-          <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false"
-              data-auto-logout-link="false" data-use-continue-as="false"></div>
           <!-- Modal footer containing cancel and submit buttons -->
           <div class="modal-footer">
              
