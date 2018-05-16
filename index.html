@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker3.standalone.min.css">
   <link rel="stylesheet" href="src/style/style.css">
   <link rel="stylesheet" href="src/style/profilePage.css">
+  <link rel="stylesheet" href="src/style/bg_video.css">
 </head>
 
 <body>
@@ -21,7 +22,7 @@
     <nav class="navbar sticky-top navbar-toggler">
       <!-- Weeklypedia logo here -->
       <img src="src/others/1j+ojl1FOMkX9WypfBe43D6kivWFqxVMnRzEwXs1M3EMoAJtlSIojvts8Ps4.png">
-        <div id="weather"></div>
+      <div id="weather"></div>
       <ul class="nav justify-content-end">
         <li class="nav-item" id="profile-li">
           <!-- <button type="button" class="btn btn-secondary" id="profile">Profile</button> -->
@@ -34,13 +35,18 @@
   </header>
 
   <div class="container" id="app"></div>
-
-  <!-- <div class="container-fluid"> -->
-  <!-- <img class="fixed-ratio-resize" src="" alt="gif"> -->
+  <video poster="src/media/backgrounds/stb.png" id="bgvid" playsinline autoplay muted loop>
+    
+  <!-- <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm"> -->
+  <source src="src/media/My_Movie.mp4" type="video/mp4">
+  
+  </video>
+  <!-- <div class=" container-fluid "> -->
+  <!-- <img class="fixed-ratio-resize " src=" " alt="gif "> -->
   <!-- </div> -->
-  <footer class="footer">
-    <!-- <div class="row1">
-      <div class="col sm-6">
+  <footer class="footer ">
+    <!-- <div class="row1 ">
+      <div class="col sm-6 ">
         <p> -->
           WEEKLYPEDIA © 2018
         <!-- </p>
@@ -54,34 +60,35 @@
 
 
   <!-- CDN -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js "></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js "></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js " integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ "
+    crossorigin="anonymous "></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js " integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl "
+    crossorigin="anonymous "></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js "></script>
 
 
 
   <!-- Components, App, and helper functions -->
 
-  <script src="src/javascript/firebase.js"></script>
-  <script src="src/javascript/helper-functions/randomizer.js"></script>
-  <script src="src/javascript/helper-functions/format_date.js"></script>
-  <script src="src/javascript/helper-functions/once.js"></script>
-  <script src="src/javascript/helper-functions/ajax_call.js"></script>
-  <script src="src/javascript/helper-functions/weather.js"></script>
-  <script src="src/javascript/helper-functions/animate.js"></script>
-  <script src="src/javascript/helper-functions/get_preferences.js"></script>
-  <script src="src/javascript/helper-functions/get_location.js"></script>
-  <script src="src/javascript/components/button.js"></script>
-  <script src="src/javascript/components/sign_in.js"></script>
-  <script src="src/javascript/components/pick_interests.js"></script>
-  <script src="src/javascript/components/your_plan.js"></script>
-  <script src="src/javascript/components/calendar.js"></script>
-  <script src="src/javascript/components/profile_settings.js"></script>
-  <script src="src/javascript/app.js"></script>
+  <script src="src/javascript/firebase.js "></script>
+  <script src="src/javascript/helper-functions/randomizer.js "></script>
+  <script src="src/javascript/helper-functions/format_date.js "></script>
+  <script src="src/javascript/helper-functions/once.js "></script>
+  <script src="src/javascript/helper-functions/ajax_call.js "></script>
+  <script src="src/javascript/helper-functions/weather.js "></script>
+  <script src="src/javascript/helper-functions/animate.js "></script>
+  <script src="src/javascript/helper-functions/get_preferences.js "></script>
+  <script src="src/javascript/helper-functions/get_location.js "></script>
+  <script src="src/javascript/components/button.js "></script>
+  <script src="src/javascript/components/sign_in.js "></script>
+  <script src="src/javascript/components/pick_interests.js "></script>
+  <script src="src/javascript/components/your_plan.js "></script>
+  <script src="src/javascript/components/calendar.js "></script>
+  <script src="src/javascript/components/profile_settings.js "></script>
+  <script src="src/javascript/app.js "></script>
+  <script src="src/javascript/bg_video.js "></script>
 
 </body>
 
