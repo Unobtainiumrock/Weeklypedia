@@ -5,74 +5,45 @@ var userID;
 var lat;
 var pickInterestsInit = once(pickInterests);
 
-//-------------------App beginning----------------------------------------------
+//-------------------App beginning Story pt. 1----------------------------------------------
 // Renders the sign-in modal to the landing page. This remains hidden until the user clicks the 
 // Sign in / Sign up button to have the moal render.
+signIn();
 
-  /*Step 1 */signIn();
 
-//--------------------Event Listner for Sign In/Sign Up---------------------------
+//------------------- Story pt. 2 -----------------------------------------------------------
+// The user either signs up or signs in, and this causes the preferences to render when they 
+// click the corresponding button
 
 $(document).on('click', '#login', function (event) {
   event.preventDefault();
-  // Grab the email and password and store them on global variables
   email = $('#email').val();
   password = $('#password').val();
-
-  
-  // var auth = firebase.auth();
-  var promise = auth.signInWithEmailAndPassword(email, password).catch(function (error) {
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  console.log("Sorry :( That user email and password don't exist, or are incorrect");
-});
-
-  auth.onAuthStateChanged(function(firebaseUser) {
-
-    if (firebaseUser) {
-
-      database.ref(firebaseUser.uid).on('value', function (snapshot) {
-        // console.log('Snapshot:', snapshot.key);
-        // console.log('Welcome, ' + snapshot.val().email);
-        userID = snapshot.key;
-        pickInterestsInit();
-        $('.modal-backdrop').remove();
-      });
-    }
-
+  // rendering happens here
+  pickInterestsInit();
+  $('.modal-backdrop').remove();
+  auth.signInWithEmailAndPassword(email, password).catch(function (error) {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log("Sorry :( That user email and password don't exist, or are incorrect");
   });
 
 });
 
-// Firebase listeners Firebase listeners Firebase listeners Firebase listeners Firebase listeners Firebase listeners
-auth.onAuthStateChanged(function(firebaseUser) {
-  if (firebaseUser) {
-    database.ref(firebaseUser.uid).update({
-      email: firebaseUser.email
-    });
-  }
-});
-
-
-// firebase.auth().signOut().then(function () {
-
-// }).catch(function (error) {
-
-// });
-
-// JQuery Listenters JQuery Listenters JQuery Listenters JQuery Listenters JQuery Listenters
-
-$(document).on('click','#signUp',function (event) {
+$(document).on('click', '#signUp', function (event) {
   event.preventDefault();
-  console.log('test1');
   email = $('#email').val();
-  console.log('Email:', email);
-  var password = $('#password').val();
-  var auth = firebase.auth();
-  var promise = auth.createUserWithEmailAndPassword(email, password);
-
+  password = $('#password').val();
+  auth.createUserWithEmailAndPassword(email, password);
+  // rendering happends here
+  pickInterestsInit();
+  $('.modal-backdrop').remove();
 });
 
+
+
+// --------------------------Story pt. 3----------------------------------------------
+// The user selects the things they are interested in and they get written to Firebase
 $(document).on('click', '.interests', function (e) {
   var interestID = $(this).attr('data-interest-id');
   var interestText = $(this).text();
@@ -80,15 +51,24 @@ $(document).on('click', '.interests', function (e) {
   $(this).remove();
 })
 
+
+// --------------------------Story pt. 4----------------------------------------------
+// The user clicks on the next button to take them to the page where they can select a desired date for 
+// generating their plan, and the plan gets generated
 $(document).on('click', '#next-button', function (e) {
   calendar();
+  buttonMaker('#profile-li', 'Profile', [{ type: 'button' }, { class: 'btn btn-info' }, { id: 'profile' }])
 })
 
-$(document).on('click','#profile',function() {
+
+
+// These are listeners for going to profile settings, and from profile settings to the interests-picking 
+// page
+$(document).on('click', '#profile', function () {
   profileSettings();
 })
 
-$(document).on('click','#go-preferences',function() {
+$(document).on('click', '#go-preferences', function () {
   pickInterests();
 })
 
