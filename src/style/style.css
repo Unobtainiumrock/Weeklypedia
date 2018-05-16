@@ -35,6 +35,8 @@ img{
     bottom: 0px;
     width: 100%;
     min-height: 8%;
+    background:rgba(0, 0, 0, 0.7);
+    color: white;
 }
 .col-md-8{
     color: white;
@@ -48,6 +50,8 @@ img{
 #next-button{
     text-align: right;
 }
-
+#weather{
+    color: wheat;
+}
   
   
