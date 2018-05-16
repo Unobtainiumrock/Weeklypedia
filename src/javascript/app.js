@@ -4,12 +4,18 @@ var password;
 var userID;
 var lat;
 var pickInterestsInit = once(pickInterests);
+var userCoords = {};
 
 //-------------------App beginning Story pt. 1----------------------------------------------
 // Renders the sign-in modal to the landing page. This remains hidden until the user clicks the 
 // Sign in / Sign up button to have the moal render.
 signIn();
-
+// Grab the user location coordinates to use throughout the app
+getPosition()
+  .then(function (coordinates) {
+    userCoords.latitude = coordinates.latitude;
+    userCoords.longitude = coordinates.longitude;
+  })
 
 //------------------- Story pt. 2 -----------------------------------------------------------
 // The user either signs up or signs in, and this causes the preferences to render when they 
@@ -61,6 +67,36 @@ $(document).on('click', '#next-button', function (e) {
 })
 
 
+
+// --------------------------Story pt. 5----------------------------------------------
+// If the user doesn't like their generated plan, they can generate a new one by clicking new plan
+
+$(document).on('click', '#new-plan', function () {
+
+  var startDate = $('#new-plan').attr('data-date');
+  var preferences = getUserPreferences();
+
+  ajaxCall(startDate, preferences, userCoords)
+    .then(function (response) {
+      // var planDiv = $('<div class="col-md-8" id="plan-view">');
+      var planView = $('#plan-view');
+      planView.html('');
+
+      var randomIndex = randomizer(0, (response.events.length - 1));
+
+      var eventName = response.events[randomIndex].name.html;
+      var eventDescription = response.events[randomIndex].description.html;
+      var eventURL = response.events[randomIndex].vanity_url;
+      var startDate = response.events[randomIndex].start.local;
+      var categoryID = response.events[randomIndex].category_id;
+
+      planView.append(eventName);
+      planView.append(eventDescription);
+      planView.append(eventURL);
+      planView.append(startDate);
+      planView.append(categoryID);
+    })
+})
 
 // These are listeners for going to profile settings, and from profile settings to the interests-picking 
 // page

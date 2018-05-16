@@ -1,17 +1,17 @@
 
-function yourPlan(startDate,preferences,coordinates) {
+function yourPlan(startDate, preferences, coordinates) {
 
-  var planDiv = $('<div class="col-md-8" id="plan-view">');
-  planDiv.text('You Plan is being made, hold tight!');
-  ajaxCall(startDate,preferences,coordinates)
-    .then(function(response) {
-      planDiv.text('');
-      // Call data
-      var eventName = response.events[0].name.html;
-      var eventDescription = response.events[0].description.html;
-      var eventURL = response.events[0].vanity_url;
-      var startDate = response.events[0].start.local;
-      var categoryID = response.events[0].category_id;
+  ajaxCall(startDate, preferences, coordinates)
+    .then(function (response) {
+      var planDiv = $('<div class="col-md-8" id="plan-view">');
+
+      var randomIndex = randomizer(0, (response.events.length - 1));
+
+      var eventName = response.events[randomIndex].name.html;
+      var eventDescription = response.events[randomIndex].description.html;
+      var eventURL = response.events[randomIndex].vanity_url;
+      var startDate = response.events[randomIndex].start.local;
+      var categoryID = response.events[randomIndex].category_id;
 
       planDiv.append(eventName);
       planDiv.append(eventDescription);
@@ -20,8 +20,8 @@ function yourPlan(startDate,preferences,coordinates) {
       planDiv.append(categoryID);
 
       $('#calendar-view').append(planDiv);
-      buttonMaker('#calendar-view','Accept Plan',[{type: 'submit'},{class: 'btn btn-primary'}, {id: 'accept-plan'}]);
-      buttonMaker('#calendar-view','New Plan',[{type: 'button'},{class: 'btn btn-primary'},{id: 'new-plan'}]);
+      buttonMaker('#calendar-view', 'Accept Plan', [{ type: 'submit' }, { class: 'btn btn-primary' }, { id: 'accept-plan' }]);
+      buttonMaker('#calendar-view', 'New Plan', [{ type: 'button' }, { class: 'btn btn-primary' }, { id: 'new-plan' }, { 'data-date': startDate }]);
     })
 
 }
