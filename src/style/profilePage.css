@@ -1,17 +1,24 @@
 
 label {
     letter-spacing: 0.75px;
-    font-size: 0.9rem;
+    font-size: 20px;
     opacity: 0.7;
+    font-weight: bold;
   }
   
 input {
     width: 100%;
-    background-color: #fff;
     border: none;
     outline: none;
     border-bottom: 2px solid #eaeaea;
   }
   .row-fluid{
-    background-color:black;
+    color:black;
+  }
+  form{
+    width:100%;
+  }
+  .field{
+    text-align: left;
+    max-width: 50%;
   }
